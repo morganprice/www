@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="<%= @document.lang %>" >
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Morgan Price Networks - <%= @document.title %></title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
+    <%- @getBlock("styles").add(["//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"]).toHTML() %>
+    <%- @getBlock("styles").add(["//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"]).toHTML() %>
+    <%- @getBlock("styles").add(["//fonts.googleapis.com/css?family=Open+Sans"]).toHTML() %>
+    <%- @getBlock("styles").add(["/css/style.css"]).toHTML() %>
+    <%- @getBlock("scripts").add(["//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"]).toHTML() %>
+    <%- @getBlock("scripts").add(["/js/analytics.js", "/js/email.js", "/js/skype.js", "/js/phone.js"]).toHTML() %>
+  </head>
+  <body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <img class="navbar-brand" src="/img/logo-small.png" alt="Morgan Price Networks" />
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav">
+          <% for page in @getCollection("html").findAll({isPage:true}).findAll({lang:@document.lang}).toJSON(): %>
+            <li><a href="<%= page.url %>"><%= page.title %></a></li>
+          <% end %>
+        </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <% if @document.lang == "cy": %>
+            <li><a href="/en/<%= @document.langs.en %>.html"><img src="/img/icons/en.png"></a></li>
+          <% else: %>
+            <li><a href="/cy/<%= @document.langs.cy %>.html"><img src="/img/icons/cy.png"></a></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div id="content">
+    <%- @content %>
+  </div>
+
+  <footer>
+  <a href="" data-u="contact" data-d="morganprice" data-t="net">
+    <i class="fi-mail"></i>
+  </a>
+  <a href="https://github.com/morganprice">
+    <i class="fi-social-github"></i>
+  </a>
+  <a href="https://twitter.com/morganpricenet">
+    <i class="fi-social-twitter"></i>
+  </a>
+  <a href="https://www.facebook.com/morganpricenetworks">
+    <i class="fi-social-facebook"></i>
+  </a>
+  </footer>
+</body>
+</html>
