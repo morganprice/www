@@ -34,9 +34,9 @@
         </ul>
           <ul class="nav navbar-nav navbar-right">
           <% if @document.lang == "cy": %>
-            <li><a href="/en/<%= @document.langs.en %>.html"><img src="/img/icons/en.png"></a></li>
+            <li><a id="lang-switch" href="/en/<%= @document.langs.en %>.html">English</a></li>
           <% else: %>
-            <li><a href="/cy/<%= @document.langs.cy %>.html"><img src="/img/icons/cy.png"></a></li>
+            <li><a id="lang-switch" href="/cy/<%= @document.langs.cy %>.html">Cymraeg</a></li>
           <% end %>
         </ul>
       </div>

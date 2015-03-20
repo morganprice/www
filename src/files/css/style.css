@@ -16,3 +16,7 @@ i[class^="fi-"] {
   font-size: 3em;
   padding: 0.2em;
 }
+
+#lang-switch {
+  font-size: 75%;
+}
