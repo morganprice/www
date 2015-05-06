@@ -1,22 +1,38 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+  margin: 10px 10%;
+  background-color: #E6EDE5;
+  font-size: 16px;
 }
-
 #content {
   padding: 2em;
 }
-
 footer {
   text-align: right;
   padding: 0.5em, 2em;
 }
-
 i[class^="fi-"] {
   color: black;
   font-size: 3em;
   padding: 0.2em;
 }
-
 #lang-switch {
   font-size: 75%;
+}
+#banner, #copyright {
+  text-align: center;
+}
+
+h1#banner {
+  font-size: 64px;
+}
+#logo {
+  max-width: 150px;
+  max-height: auto;
+}
+
+.navbar {
+  background-image: none;
+  border-color: #FFEFD9;
+  background-color: #FFF7EC;
 }

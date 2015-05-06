@@ -8,58 +8,62 @@
     <link rel="icon" type="image/x-icon" href="/img/favicon.png" />
     <%- @getBlock("styles").add(["//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"]).toHTML() %>
     <%- @getBlock("styles").add(["//cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.min.css"]).toHTML() %>
-    <%- @getBlock("styles").add(["//fonts.googleapis.com/css?family=Open+Sans"]).toHTML() %>
+    <%- @getBlock("styles").add(["//fonts.googleapis.com/css?family=PT+Sans"]).toHTML() %>
     <%- @getBlock("styles").add(["/css/style.css"]).toHTML() %>
-    <%- @getBlock("scripts").add(["//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"]).toHTML() %>
+    <%- @getBlock("scripts").add(["//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"]).toHTML() %>
+    <%- @getBlock("scripts").add(["//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"]).toHTML() %>
     <%- @getBlock("scripts").add(["/js/analytics.js", "/js/email.js", "/js/skype.js", "/js/phone.js"]).toHTML() %>
   </head>
   <body>
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <h1 class="hidden-xs text-lowercase" id="banner">
+          <img src="/img/logo.svg" id="logo" alt="Morgan Price Networks" />
+          Morgan Price Networks
+        </h1>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </button>
-        <img class="navbar-brand" src="/img/logo-small.png" alt="Morgan Price Networks" />
-      </div>
-
-      <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="nav navbar-nav">
-          <% for page in @getCollection("html").findAll({isPage:true}).findAll({lang:@document.lang}).toJSON(): %>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <% for page in @getCollection("html").findAll({isPage:true}).findAll({lang:@document.lang}).toJSON(): %>
             <li><a href="<%= page.url %>"><%= page.title %></a></li>
-          <% end %>
-        </ul>
+            <% end %>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
-          <% if @document.lang == "cy": %>
+            <% if @document.lang == "cy": %>
             <li><a id="lang-switch" href="/en/<%= @document.langs.en %>.html">English</a></li>
-          <% else: %>
+            <% else: %>
             <li><a id="lang-switch" href="/cy/<%= @document.langs.cy %>.html">Cymraeg</a></li>
-          <% end %>
-        </ul>
+            <% end %>
+          </ul>
+        </div>
       </div>
+    </nav>
+    <div id="content">
+      <%- @content %>
     </div>
-  </nav>
-
-  <div id="content">
-    <%- @content %>
-  </div>
-
-  <footer>
-  <a href="" data-u="contact" data-d="morganprice" data-t="net">
-    <i class="fi-mail"></i>
-  </a>
-  <a href="https://github.com/morganprice">
-    <i class="fi-social-github"></i>
-  </a>
-  <a href="https://twitter.com/morganpricenet">
-    <i class="fi-social-twitter"></i>
-  </a>
-  <a href="https://www.facebook.com/morganpricenetworks">
-    <i class="fi-social-facebook"></i>
-  </a>
-  </footer>
-</body>
+    <footer>
+      <a href="" data-u="contact" data-d="morganprice" data-t="net">
+        <i class="fi-mail"></i>
+      </a>
+      <a href="https://github.com/morganprice">
+        <i class="fi-social-github"></i>
+      </a>
+      <a href="https://twitter.com/morganpricenet">
+        <i class="fi-social-twitter"></i>
+      </a>
+      <a href="https://www.facebook.com/morganpricenetworks">
+        <i class="fi-social-facebook"></i>
+      </a>
+      <div id="copyright">
+        &copy; 2014-15 Morgan Price Networks LLP
+      </div>
+    </footer>
+  </body>
 </html>
